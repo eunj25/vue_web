@@ -52,7 +52,6 @@ footer {
       height: calc(180px - 80px);
       .logo {
         width: 130px;
-        background-color:  $wh-color;
       }
     }
     .contact {

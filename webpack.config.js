@@ -50,7 +50,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|webp)$/,
+        test: /\.(png|jpe?g|gif|webp|svg)$/,
         use: [
           {
             loader: 'url-loader',
@@ -59,18 +59,14 @@ module.exports = {
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'img/[name].[contenthash:8].[ext]',
+                  // name: 'assets/[name].[contenthash:8].[ext]',
                   esModule: false
                 }
               },
-                esModule: false
+              esModule: false
             }
           }
-        ],
-        exclude: /node_modules/
-        // use: [
-        //   'file-loader'
-        // ]
+        ]
       }
     ]
   },

@@ -60,9 +60,6 @@ export default {
   },
   computed: {
     ...mapState('about', [
-      'email',
-      'address',
-      'phone',
       'image'
     ])
   }
@@ -83,14 +80,13 @@ header {
     padding: 17px 23px;
     .logo {
       width: 129px;
-      background-color: #fff;
     }
     nav ul {
       display: flex;
       align-items: flex-start;
       gap: 40px;
       li a {
-        color: $bk-color;
+        color: $wh-color;
         &:hover {
           font-weight: bold;
           color: $premary-600;

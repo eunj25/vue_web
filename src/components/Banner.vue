@@ -1,5 +1,6 @@
 <template>
-  <div class="sub_banner">
+  <div class="sub_banner"
+    :style="{ 'background-image': 'url(' + bannerImg + ')' }">
     <h1>{{ bannerText }}</h1>
     <P>{{ bannerDesc }}</P>
   </div>
@@ -13,6 +14,9 @@ export default {
     },
     bannerDesc() {
       return this.$store.state.banner.bannerDesc;
+    },
+    bannerImg() {
+      return this.$store.state.banner.bannerImg;
     }
   }
 }

@@ -1,25 +1,7 @@
 <template>
   <section class="sub_page company">
     <Banner/>
-    <nav class="menu">
-      <ul>
-        <!-- <li v-for="nav in menu"
-          :key="nav.name"
-          class="nav-item">
-          <RouterLink 
-            :to="nav.href"
-            active-class="active"
-            class="nav-link">
-            {{ nav.name }}
-          </RouterLink>
-        </li> -->
-        <li><router-link to="#part1">Company</router-link></li>
-        <li><router-link to="#part2">History</router-link></li>
-        <li><router-link to="#part3">Structure</router-link></li>
-        <li><router-link to="#part4">About</router-link></li>
-      </ul>
-    </nav>
-
+    <Menu :menuItems="companyMenu"/>
     <div class="contents company_inner">
       <div class="content int reveal reveal_BTT" id="part1">
         <div class="headline">
@@ -30,67 +12,48 @@
             차별화된 앤타스만의 솔루션을 통해 고객과 파트너와 함께 성장해 나아가겠습니다.
           </p>
         </div>
-        <div class="photo"><img src="assets/company_img.jpg" alt=""></div>
+        <div class="photo"><img :src="require('assets/company_img.jpg')" alt=""></div>
       </div>
+
       <div class="content history reveal reveal_BTT" id="part2">
         <div class="title">history</div>
         <div>
-          <ul >
-            <li class="history_box">
-              <div class="year">2024</div>
+          <ul>
+            <li class="history_box"
+              v-for="item in historyItems" 
+              :key="item.year">
+              <div class="year">{{ item.year }}</div>
               <ul class="list_box">
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-              </ul>
-            </li>
-            <li class="history_box">
-              <div class="year">2023</div>
-              <ul class="list_box">
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-              </ul>
-            </li>
-            <li class="history_box">
-              <div class="year">2022</div>
-              <ul class="list_box">
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-              </ul>
-            </li>
-            <li class="history_box">
-              <div class="year">2021</div>
-              <ul class="list_box">
-                <li class="list">프로젝트 성과 및 R&D 성과 목록 입니다.</li>
-                <li class="list">NTAS 설립</li>
+                  <li class="list" 
+                    v-for="achievement in item.achievements" 
+                    :key="achievement">
+                    {{ achievement }}
+                  </li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
+
       <div class="content structure reveal reveal_BTT" id="part3">
         <div class="title">structure</div>
         <div class="photo"><img src="assets/structure.svg" alt=""></div>
       </div>
+      
       <div class="content about reveal reveal_BTT" id="part4">
         <div class="title">about</div>
         <div class="items_box about_box">
           <div class="item">
             <h1><span class="material-symbols-outlined"> place </span>Our Address</h1>
-            <p>서울특별시 중구 세종대로19길 16, 본관 지상 1층(정동, 성공회빌딩)</p>
+            <p>{{ address }}</p>
           </div>
           <div class="item">
             <h1><span class="material-symbols-outlined"> mail </span>Email Us</h1>
-            <p>ntas@ntas.co.kr</p>
+            <p>{{ email }}</p>
           </div>
           <div class="item">
             <h1><span class="material-symbols-outlined">smartphone</span>Call Us</h1>
-            <p>+82 70-4797-0042</p>
+            <p>{{ phone }}</p>
           </div>
         </div>
       </div>
@@ -99,17 +62,70 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Banner from '~/components/Banner.vue'
+import Menu from '~/components/Menu.vue'
 
 export default {
   components: {
-    Banner
+    Banner,
+    Menu
+  },
+  computed: {
+    ...mapState('about', [
+      'email',
+      'address',
+      'phone',
+    ])
+  },
+  data() {
+    return {
+      companyMenu: [
+        { link: '#part1', text: 'Company'},
+        { link: '#part2', text: 'History'},
+        { link: '#part3', text: 'Structure'},
+        { link: '#part4', text: 'About'}
+      ],
+      historyItems: [
+        { 
+          year: 2024, 
+          achievements: [
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.'
+          ] 
+        },
+        { 
+          year: 2023,
+          achievements: [
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.'
+          ] 
+        },
+        { 
+          year: 2022, 
+          achievements: [
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            '프로젝트 성과 및 R&D 성과 목록 입니다.'
+          ] 
+        },
+        { 
+          year: 2021, 
+          achievements: [
+            '프로젝트 성과 및 R&D 성과 목록 입니다.', 
+            'NTAS 설립'
+          ] 
+        },
+      ]
+    }
   },
   mounted() {
     // 페이지 로드 시에 배너 텍스트 업데이트
     this.$store.dispatch('banner/updateBannerText', '회사소개');
     this.$store.dispatch('banner/updateBannerDesc', '앤타스는 고객님의 방문을 언제나 환영합니다.');
-
+    this.$store.dispatch('banner/updateBannerImg', 'assets/sub_banner_01.png');
   }
 }
 </script>

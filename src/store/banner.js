@@ -4,7 +4,7 @@ export default {
     // 기본값은 빈 문자열로 설정
     bannerText: '',
     bannerDesc: '' ,
-    bacgkroundImageUrl: ''
+    bannerImg: ''
   }),
   mutations: {
     setBannerText(state, text) {
@@ -12,6 +12,9 @@ export default {
     },
     setBannerDesc(state, Desc) {
       state.bannerDesc = Desc;
+    },
+    setBannerImg(state, img) {
+      state.bannerImg = img;
     }
   },
   actions: {
@@ -20,6 +23,9 @@ export default {
     },
     updateBannerDesc({ commit }, Desc) {
       commit('setBannerDesc', Desc);
+    },
+    updateBannerImg({ commit }, img) {
+      commit('setBannerImg', img);
     }
   }
 }

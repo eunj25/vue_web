@@ -1,18 +1,19 @@
 <template>
   <section class="sub_page strategy">
     <Banner/>
+    <Menu :menuItems="strategyMenu"/>
+
     <div class="contents strategy_inner">
 
     <!-- rpa -->
     <div class="content rpa" id="part1">
-      <div class="headline reveal reveal_BTT">
-        <h1><b>RPA</b><br>Digital Transformation 시대</h1>
-        <p>
-          로봇이 많은 양의 반복적인 업무를 수행하는 동안 직원은 혁신, 협업, 창조, 고객과의 상호작용 등 더 창의적이고 가치있는 업무에 집중할 수 있습니다. <br>
-          이를 통해 기업의 생산성, 효율성 및 복원력이 높아집니다. <br>
-          RPA는 일의 역사를 다시 쓰고 있습니다.
-        </p>
-      </div>
+      
+      <Headline
+        title= "RPA"
+        description= "Digital Transformation 시대"
+        paragraph= "로봇이 많은 양의 반복적인 업무를 수행하는 동안 직원은 혁신, 협업, 창조, 고객과의 상호작용 등 더 창의적이고 가치있는 업무에 집중할 수 있습니다. <br> 이를 통해 기업의 생산성, 효율성 및 복원력이 높아집니다. RPA는 일의 역사를 다시 쓰고 있습니다."
+      />
+
       <div class="content_inner reveal reveal_BTT">
         <div class="title">Benefits</div>
         <div class="tab_menu">
@@ -135,17 +136,14 @@
 
     <!-- Uipath -->
     <div class="content Uipath" id="part2">
-      <div class="headline reveal reveal_BTT">
-        <h1><b>UiPath</b><br>AI 기반 업무 자동화 솔루션, <br>
-          UiPath RPA를 통해 놀라운 업무 혁신을 경험해보세요. </h1>
-        <p>
-          UiPath RPA는 업무 자동화 분야를 선도하는 최고의 RPA 솔루션입니다. 소프트웨어 로봇 또는 봇(Bot)이 비즈니스 프로세스 내에서 단순, 반복, 규칙적인 업무를
-          자동화 합니다. RPA 봇(Bot)은 사람보다 훨씬 빠르게 업무를 수행하고 휴먼 에러를 최소화 하여 보다 정확한 결과를 도출합니다. 따라서 직원들은 인간의 기술이
-          필요한 전략적이고 창의적인 업무에 집중할 수 있습니다. 또한 AI 기술과 연계한 지능형 Bot은 더욱 복잡한 업무를 자동화하여 기업에 더 많은 가치를 제공합니다.
-          <br><br>
-          기업의 생산성 향상 뿐만 아니라 기업 문화와 고객 가치에 혁신을 일으키는 UiPath RPA, 지금 바로 경험해보세요.
-        </p>
-      </div>
+
+      <Headline
+        title="UiPath"
+        description="AI 기반 업무 자동화 솔루션, UiPath RPA를 통해 놀라운 업무 혁신을 경험해보세요."
+        paragraph="UiPath RPA는 업무 자동화 분야를 선도하는 최고의 RPA 솔루션입니다. 소프트웨어 로봇 또는 봇(Bot)이 비즈니스 프로세스 내에서 단순, 반복, 규칙적인 업무를 자동화 합니다. RPA 봇(Bot)은 사람보다 훨씬 빠르게 업무를 수행하고 휴먼 에러를 최소화 하여 보다 정확한 결과를 도출합니다. 따라서 직원들은 인간의 기술이
+        필요한 전략적이고 창의적인 업무에 집중할 수 있습니다. 또한 AI 기술과 연계한 지능형 Bot은 더욱 복잡한 업무를 자동화하여 기업에 더 많은 가치를 제공합니다.
+        <br><br> 기업의 생산성 향상 뿐만 아니라 기업 문화와 고객 가치에 혁신을 일으키는 UiPath RPA, 지금 바로 경험해보세요."
+      />
 
       <div class="content_inner reveal reveal_BTT">
         <div class="title">Benefits</div>
@@ -189,7 +187,9 @@
               <h3>UiPath RPA를 통한 비즈니스 프로세스 혁신</h3>
             </div>
           </div>
-          <video src="assets/UiPath.mp4" autoplay controls muted loop poster=""></video>
+          <video autoplay controls muted loop poster="">
+            <source :src="videoSource" type="video/mp4">
+          </video>
         </div>
       </div>
 
@@ -204,14 +204,14 @@
 
     <!-- ai-Uipath -->
     <div class="content ai" id="part3">
-      <div class="headline reveal reveal_BTT">
-        <span>인공지능 기술융합</span>
-        <h1><b>AI-Powered UiPath</b><br>드래그 앤 드롭으로 손쉽게 AI 기술을 적용해보세요. </h1>
-        <p>
-          가장 일반적인 AI 자동화 사용 사례를 통해 수십 개의 ML 모델을 사전 구축했습니다.<br>
-          사전 구축된 모델, AI 솔루션 템플릿, 다양한 구현 옵션, 드래그 앤 드롭 인터페이스를 통해 보다 복잡한 업무까지 자동화 영역을 확대할 수 있습니다.
-        </p>
-      </div>
+
+      <Headline
+        span="인공지능 기술융합"
+        title="AI-Powered UiPath"
+        description="드래그 앤 드롭으로 손쉽게 AI 기술을 적용해보세요."
+        paragraph="가장 일반적인 AI 자동화 사용 사례를 통해 수십 개의 ML 모델을 사전 구축했습니다.<br>
+          사전 구축된 모델, AI 솔루션 템플릿, 다양한 구현 옵션, 드래그 앤 드롭 인터페이스를 통해 보다 복잡한 업무까지 자동화 영역을 확대할 수 있습니다."
+      />
 
       <div class="content_inner reveal reveal_BTT">
         <div class="title">Benefits</div>
@@ -255,11 +255,11 @@
         <div class="title">Use Cases</div>
         <div class="case_box">
           <div>
-            <img src="assets/case01.png" alt="">
+            <img :src="require('assets/case01.png')" alt="">
             <span>AI 기술 접목 케이스 1</span>
           </div>
           <div>
-            <img src="assets/case02.png" alt="">
+            <img :src="require('assets/case02.png')" alt="">
             <span>AI 기술 접목 케이스 2</span>
           </div>
         </div>
@@ -269,7 +269,7 @@
     <!-- services -->
     <div class="content services" id="part4">
       <div class="headline reveal reveal_BTT">
-        <img src="assets/services_text.svg" alt="">
+        <img :src="require('assets/services_text.svg')" alt="">
         <p>NTAS는 인지 컴퓨팅 및 로봇 프로세스 자동화 기술을 기반으로
           혁신적인 성능 향상을 이끌어내는 서비스 플랫폼을 개발합니다.</p>
       </div>
@@ -362,9 +362,12 @@
 
     <!-- R&D -->
     <div class="content RD" id="part5">
-      <div class="headline reveal reveal_BTT">
-        <h1><b>R&D</b><br>NTAS 핵심요소기술 연구개발</h1>
-      </div>
+
+      <Headline
+        title="R&D"
+        description="NTAS 핵심요소기술 연구개발"
+      />
+      
       <div class="table_box reveal reveal_BTT">
         <table>
           <thead class="heading">
@@ -416,10 +419,26 @@
 
 <script>
 import Banner from '~/components/Banner.vue'
+import Menu from '~/components/Menu.vue'
+import Headline from '~/components/Headline.vue'
 
 export default {
   components: {
-    Banner
+    Banner,
+    Menu,
+    Headline
+  },
+  data() {
+    return {
+      strategyMenu: [
+        { link: '#part1', text: 'RPA'},
+        { link: '#part2', text: 'UiPath'},
+        { link: '#part3', text: '인공지능 기술융합'},
+        { link: '#part4', text: 'Services'},
+        { link: '#part5', text: 'R&D'}
+      ],
+      videoSource: '/assets/UiPath.mp4'
+    }
   },
   mounted() {
     // 페이지 로드 시에 배너 텍스트 업데이트
@@ -432,12 +451,7 @@ export default {
 <style lang="scss" scoped>
 @import "~/scss/main";
 
-.headline {
-  margin-top: 14vw;
-  b {
-    color: $premary-600;
-  }
-}
+
 .content_inner {
   padding-top: 9.60vw;
   .items_box h1 {
