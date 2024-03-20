@@ -37,9 +37,16 @@ module.exports = {
         test: /\.s?css$/, // 정규표현식
         use: [
           'vue-style-loader',
+          // 'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: '@import "~/scss/main";'
+            }
+          }
+          // 'sass-loader'
         ]
       },
       {
@@ -50,7 +57,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|webp|svg)$/,
+        test: /\.(png|jpe?g|gif|webp)$/,
         use: [
           {
             loader: 'url-loader',
@@ -59,8 +66,9 @@ module.exports = {
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  // name: 'assets/[name].[contenthash:8].[ext]',
-                  esModule: false
+                  name: '[name].[contenthash:8].[ext]',
+                  esModule: false,
+                   outputPath: 'assets/' // Output directory for image files relative to the 'dist' directory
                 }
               },
               esModule: false

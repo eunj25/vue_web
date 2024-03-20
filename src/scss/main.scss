@@ -290,7 +290,7 @@ section.sub_page {
       display: block;
     }
     &:nth-child(1) {
-      background-image: url(assets/rpa_benefits.png);
+      background-image: url('assets/rpa_benefits.png');
     }
     h2 {
       font-size: 2.0rem;
@@ -300,13 +300,13 @@ section.sub_page {
 }
 
 $sub_img: (
-  company: url(assets/sub_banner_01.png),
-  strategy: url(assets/sub_banner_02.png),
-  incruit: url(assets/sub_banner_03.png),
-  contact: url(assets/sub_banner_04.png)
+  company: url('assets/sub_banner_01.png'),
+  strategy: url('assets/sub_banner_02.png'),
+  incruit: url('assets/sub_banner_03.png'),
+  contact: url('assets/sub_banner_04.png')
 );
 @each $key, $vlue in $sub_img {
-  .sub_page.#{$key} {
+  .sub_page.#{$key} .sub_banner {
     background-image: $vlue;
   }
 }

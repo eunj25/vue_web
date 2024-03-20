@@ -9,7 +9,7 @@
         <div class="inc_box">
           <div class="item"
             v-for="item in incItems"
-            :key="data_num">
+            :key="item.data_num">
             <div class="photo">
               <img :src="item.image" alt="">
             </div>
@@ -26,7 +26,7 @@
         <div class="wel_box">
           <div class="item"
             v-for="item in welItems"
-            :key="num">
+            :key="item.num">
             <h1>{{ item.title }}</h1>
             <p v-html="item.desc"></p>
             <div class="photo"><img :src="item.icon" alt=""></div>
@@ -182,6 +182,7 @@ export default {
     // 페이지 로드 시에 배너 텍스트 업데이트
     this.$store.dispatch('banner/updateBannerText', '인사제도');
     this.$store.dispatch('banner/updateBannerDesc', '경력과 성과에 따른 합리적인 평가, 앤타스의 인사제도를 안내합니다.');
+    this.$store.dispatch('banner/updateBannerImg', 'src/assets/sub_banner_01.png');
   }
 }
 </script>

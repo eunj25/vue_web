@@ -2,7 +2,7 @@
   <nav class="menu">
     <ul>
       <li v-for="(menuItem, index) in menuItems" :key="index">
-        <a :href="menuItem.link">{{ menuItem.text }}</a>
+        <a :href="baseRoute + menuItem.link">{{ menuItem.text }}</a>
       </li>
     </ul>
   </nav>
@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props: ['menuItems']
+  props: ['menuItems','baseRoute']
 }
 </script>

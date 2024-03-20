@@ -1,6 +1,6 @@
 <template>
-  <div class="sub_banner"
-    :style="{ 'background-image': 'url(' + bannerImg + ')' }">
+  <div class="sub_banner">
+    <!-- :style="{ 'background-image': 'url(' + bannerImg + ')' }"> -->
     <h1>{{ bannerText }}</h1>
     <P>{{ bannerDesc }}</P>
   </div>
@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/scss/main";
+
 .sub_banner {
   width: 100%;
   height: 330px;

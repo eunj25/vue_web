@@ -46,8 +46,8 @@ export default {
   border: 1px solid $premary-600;
   color: $premary-600;
   position: fixed;
-  bottom: -10%;
-  // bottom: 30%;
+  // bottom: -10%;
+  bottom: 30%;
   right: 5%;
   cursor: pointer;
   transition: 0.5s;

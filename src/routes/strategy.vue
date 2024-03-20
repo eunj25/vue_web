@@ -1,7 +1,7 @@
 <template>
   <section class="sub_page strategy">
     <Banner/>
-    <Menu :menuItems="strategyMenu"/>
+    <Menu :menuItems="strategyMenu" baseRoute="#/strategy/" />
 
     <div class="contents strategy_inner">
 
@@ -269,7 +269,7 @@
     <!-- services -->
     <div class="content services" id="part4">
       <div class="headline reveal reveal_BTT">
-        <img :src="require('assets/services_text.svg')" alt="">
+        <!-- <img :src="require('assets/services_text.svg')" alt=""> -->
         <p>NTAS는 인지 컴퓨팅 및 로봇 프로세스 자동화 기술을 기반으로
           혁신적인 성능 향상을 이끌어내는 서비스 플랫폼을 개발합니다.</p>
       </div>

@@ -1,4 +1,6 @@
 <template>
+  <Progress />
+  
   <!-- intro -->
   <section class="full intro">
     <div class="intro_title">
@@ -118,7 +120,12 @@
 </template>
 
 <script>
+import Progress from '~/components/Progress.vue'
+
 export default {
+  components: {
+    Progress
+  },
   methods: {
     goToPage(path) {
       this.$router.push(path);

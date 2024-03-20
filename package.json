@@ -40,6 +40,7 @@
     "webpack-dev-server": "^4.0.0-rc.1"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "url-loader": "^4.1.1",
     "vue": "^3.4.19",
     "vue-router": "^4.2.5",
