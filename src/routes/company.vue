@@ -1,17 +1,16 @@
 <template>
   <section class="sub_page company">
     <Banner/>
-    <Menu :menuItems="companyMenu"/>
+    <Menu :menuItems="companyMenu" baseRoute="#/company/" />
     <div class="contents company_inner">
       <div class="content int reveal reveal_BTT" id="part1">
-        <div class="headline">
-          <h1><b>NTAS</b><br>기업과 인간에게 새로운 가치를 제공합니다.</h1>
-          <p>
-            앤타스는 IT기술과 아이디어의 결합으로 ‘기업과 인간에게 새로운 가치를 제공’하는 정보기술 기업입니다. <br>
+        <Headline
+        :style="{ marginTop: 0 }"
+        title="NTAS"
+        description="기업과 인간에게 새로운 가치를 제공합니다."
+        paragraph=" 앤타스는 IT기술과 아이디어의 결합으로 ‘기업과 인간에게 새로운 가치를 제공’하는 정보기술 기업입니다. <br>
             산업과 환경의 변화 가운데 소프트웨어 자동화 원천 기술을 기반으로 자동화를 넘어 초자동화 시대로의 온/오프라인을 아우르는 <br>
-            차별화된 앤타스만의 솔루션을 통해 고객과 파트너와 함께 성장해 나아가겠습니다.
-          </p>
-        </div>
+            차별화된 앤타스만의 솔루션을 통해 고객과 파트너와 함께 성장해 나아가겠습니다."  />
         <div class="photo"><img :src="require('assets/company_img.jpg')" alt=""></div>
       </div>
 
@@ -40,7 +39,7 @@
         <div class="photo"><img src="assets/structure.svg" alt=""></div>
       </div>
       
-      <div class="content about reveal reveal_BTT" id="part4">
+      <div class="content about reveal reveal_BTT" id="part04">
         <div class="title">about</div>
         <div class="items_box about_box">
           <div class="item">
@@ -63,13 +62,16 @@
 
 <script>
 import { mapState } from 'vuex'
-import Banner from '~/components/Banner.vue'
-import Menu from '~/components/Menu.vue'
+import Banner from '~/components/Banner'
+import Menu from '~/components/Menu'
+import Headline from '~/components/Headline'
+
 
 export default {
   components: {
     Banner,
-    Menu
+    Menu,
+    Headline
   },
   computed: {
     ...mapState('about', [
@@ -84,7 +86,7 @@ export default {
         { link: '#part1', text: 'Company'},
         { link: '#part2', text: 'History'},
         { link: '#part3', text: 'Structure'},
-        { link: '#part4', text: 'About'}
+        { link: '#part04', text: 'About'}
       ],
       historyItems: [
         { 

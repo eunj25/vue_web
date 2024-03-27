@@ -8,7 +8,8 @@ import contact from './contact.vue'
 export default createRouter({
   // Hash
   // https://www.google.com/#/
-  history: createWebHashHistory(),
+  history: 
+  createWebHashHistory(),
   scrollBehavior() {
     // always scroll to top
     return { top: 0 }

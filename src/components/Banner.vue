@@ -1,6 +1,5 @@
 <template>
   <div class="sub_banner">
-    <!-- :style="{ 'background-image': 'url(' + bannerImg + ')' }"> -->
     <h1>{{ bannerText }}</h1>
     <P>{{ bannerDesc }}</P>
   </div>
@@ -14,9 +13,6 @@ export default {
     },
     bannerDesc() {
       return this.$store.state.banner.bannerDesc;
-    },
-    bannerImg() {
-      return this.$store.state.banner.bannerImg;
     }
   }
 }
@@ -24,6 +20,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/scss/main";
+
+$sub_img: (
+  company: url('~assets/sub_banner_01.png'),
+  strategy: url('~assets/sub_banner_02.png'),
+  incruit: url('~assets/sub_banner_03.png'),
+  contact: url('~assets/sub_banner_04.png')
+);
+@each $key, $vlue in $sub_img {
+  .sub_page.#{$key} .sub_banner {
+    background-image: $vlue !important;
+  }
+}
 
 .sub_banner {
   width: 100%;

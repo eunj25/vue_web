@@ -65,8 +65,8 @@
 
 
 <script>
-import Banner from '~/components/Banner.vue'
-import Menu from '~/components/Menu.vue'
+import Banner from '~/components/Banner'
+import Menu from '~/components/Menu'
 
 export default {
   components: {
@@ -182,7 +182,6 @@ export default {
     // 페이지 로드 시에 배너 텍스트 업데이트
     this.$store.dispatch('banner/updateBannerText', '인사제도');
     this.$store.dispatch('banner/updateBannerDesc', '경력과 성과에 따른 합리적인 평가, 앤타스의 인사제도를 안내합니다.');
-    this.$store.dispatch('banner/updateBannerImg', 'src/assets/sub_banner_01.png');
   }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
-  <Progress />
-  
+  <!-- <Progress /> -->
+  <div class="parallax__progress">
+    <progress max="100" value="0"></progress>
+  </div>
   <!-- intro -->
   <section class="full intro">
     <div class="intro_title">
@@ -120,22 +122,55 @@
 </template>
 
 <script>
-import Progress from '~/components/Progress.vue'
+// import Progress from '~/components/Progress.vue'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
-    Progress
+    // Progress
   },
-  methods: {
-    goToPage(path) {
-      this.$router.push(path);
-    }
+  
+  methods() {
+    gsap.to("progress", {
+      value: 100,
+      ease: "none",
+      scrollTrigger: { scrub: 0.3 }
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "~/scss/main";
+
+/* parallax__progress */
+.parallax__progress progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border: none;
+  background: transparent;
+  &::-webkit-progress-bar {
+    background: transparent;
+  }
+  &::-webkit-progress-value {
+    // background: linear-gradient(to left, $premary-800, $premary-600, $premary-100);
+    background-color: $premary-600;
+    background-attachment: fixed;
+  }
+  &::-moz-progress-bar {
+    // background: linear-gradient(to left, $premary-800, $premary-600, $premary-100);
+    background-color: $premary-600;
+    background-attachment: fixed;
+  }
+}
 
 section.full {
   width: 100%;

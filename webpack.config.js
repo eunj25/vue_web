@@ -1,4 +1,5 @@
 //import
+// path: NodeJS에서 파일 및 디렉토리 경로 작업을 위한 전역 모듈
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -13,7 +14,7 @@ module.exports = {
     // 경로 별칭 설정
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      'assets': path.resolve(__dirname, 'src/assets')
+      'assets': path.resolve(__dirname, './src/assets')
     }
   },
   // parcel main.js
@@ -22,8 +23,8 @@ module.exports = {
   
   // 결과물(번들)을 반환하는 설정
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    // path: path.resolve(__dirname, 'dist'),
+    // filename: 'main.js',
     clean: true
   },
 
@@ -37,7 +38,6 @@ module.exports = {
         test: /\.s?css$/, // 정규표현식
         use: [
           'vue-style-loader',
-          // 'style-loader',
           'css-loader',
           'postcss-loader',
           {
@@ -57,25 +57,38 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|webp)$/,
+        test: /\.(png|jpe?g|gif|webp|mp4)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 10240,
-              fallback: {
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[contenthash:8].[ext]',
-                  esModule: false,
-                   outputPath: 'assets/' // Output directory for image files relative to the 'dist' directory
-                }
-              },
+              name: '[name].[contenthash:8].[ext]',
               esModule: false
             }
           }
+          // {
+          //   loader: 'url-loader',
+          //   options: {
+          //     limit: 10240,
+          //     fallback: {
+          //       loader: 'file-loader',
+          //       options: {
+          //         name: '[name].[contenthash:8].[ext]',
+          //         esModule: false
+          //       }
+          //     },
+          //     esModule: false
+          //   }
+          // }
         ]
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          // 'babel-loader',
+          'vue-svg-loader',
+        ]
+      },
     ]
   },
 
